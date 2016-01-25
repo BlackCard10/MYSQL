@@ -7,6 +7,8 @@ are mine. These are all written in MYSQL */
 /* http://sqlzoo.net/wiki/The_JOIN_operation  */ 
 
 
+
+
 /* 1.  Modify it to show the matchid and player name for all goals scored by Germany. 
 To identify German players, check for: teamid = 'GER'  */
 
@@ -35,6 +37,7 @@ FROM game JOIN goal ON(id = matchid)
 WHERE player LIKE 'Mario%'
 
 
+
 /*  5.  Show player, teamid, coach, gtime for all goals scored in the first 10 minutes gtime<=10  */ 
 
 SELECT player, teamid, coach, gtime
@@ -42,11 +45,13 @@ FROM goal JOIN eteam ON teamid = id
 WHERE gtime <= 10
 
 
+
 /* 6. List the the dates of the matches and the name of the team in which 'Fernando Santos' was the team1 coach. */ 
 
 SELECT mdate, teamname 
 FROM game JOIN eteam ON (team1 = eteam.id)
 WHERE coach = "Fernando Santos"
+
 
 /* 7. List the player for every goal scored in a game where the stadium was 'National Stadium, Warsaw' */ 
 
@@ -63,12 +68,14 @@ SELECT DISTINCT player
     WHERE (team1='GER' OR team2='GER')
       AND teamid != "GER" 
       
+      
 /*  9. Show teamname and the total number of goals scored.  */
 
 SELECT teamname, count(matchid)
   FROM eteam JOIN goal ON id=teamid
 GROUP BY teamname 
 ORDER BY teamname
+
 
 
 /* 10.  Show the stadium and the number of goals scored in each stadium.  */ 
@@ -86,6 +93,7 @@ SELECT matchid, mdate, count(matchid)
   FROM game JOIN goal ON (goal.matchid = game.id)
  WHERE (team1 = 'POL' OR team2 = 'POL')
 GROUP BY matchid
+
 
 
 /* 12. For every match where 'GER' scored, show matchid, match date and the number of goals scored by 'GER' */ 
