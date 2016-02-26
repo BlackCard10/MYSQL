@@ -122,3 +122,5 @@ JOIN stops trans2 ON (c.stop = trans2.id)
 JOIN stops end ON (d.stop= end.id) 
 WHERE start.name = "Craiglockhart" AND trans1.name = trans2.name
 AND end.name = "Sighthill" 
+
+
