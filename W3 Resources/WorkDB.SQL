@@ -45,9 +45,9 @@ CREATE TABLE orders(
   order_date date, 
   cust_id INT, 
   salesperson_id INT, 
+  amount INT,
   FOREIGN KEY(cust_id) REFERENCES customer(id), 
-  FOREIGN KEY(salesperson_id) REFERENCES salesperson(id),
-  amount INT
+  FOREIGN KEY(salesperson_id) REFERENCES salesperson(id)
  );
  
   
@@ -60,4 +60,5 @@ VALUES
   ('40', '1998-01-29', '7', '2', '2400'), 
   ('50', '1998-02-03', '6', '7', '600'), 
   ('60', '1998-03-02', '6', '7', '720'), 
-  ('70', '1998-05-06', '9', '7', '15
+  ('70', '1998-05-06', '9', '7', '15')
+  ;
